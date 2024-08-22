@@ -1,0 +1,921 @@
+(base) PS C:\Users\Guillermo García> cd "C:\Users\Guillermo García\Dropbox\TEC MTY MPE\Producto Académico de Investigación\LEAP\memo_leap\memo"
+(base) PS C:\Users\Guillermo García\Dropbox\TEC MTY MPE\Producto Académico de Investigación\LEAP\memo_leap\memo> python
+Python 3.11.3 | packaged by Anaconda, Inc. | (main, Apr 19 2023, 23:46:34) [MSC v.1916 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> exit
+Use exit() or Ctrl-Z plus Return to exit
+>>> exit()
+(base) PS C:\Users\Guillermo García\Dropbox\TEC MTY MPE\Producto Académico de Investigación\LEAP\memo_leap\memo> python run_LEAP_model.py 1
+++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++
+
+Inicia Experimento 1
+
+++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++
+
+### Inicializa modelo
+
+
+#### Actualiza expresiones
+
+
+#### Ejecuta Modelo
+
+
+#### Ejecuta Modelo
+
+
+#### Exporta resultados
+
+output\2_margen_reserva.csv
+output\2_costos_produccion.csv
+output\2_emisiones_gei.csv
+(base) PS C:\Users\Guillermo García\Dropbox\TEC MTY MPE\Producto Académico de Investigación\LEAP\memo_leap\memo> python run_LEAP_model.py 2
+++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++
+
+Inicia Experimento 2
+
+++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++
+
+### Inicializa modelo
+
+
+#### Actualiza expresiones
+
+
+#### Ejecuta Modelo
+
+
+#### Ejecuta Modelo
+
+
+#### Exporta resultados
+
+output\3_margen_reserva.csv
+output\3_costos_produccion.csv
+output\3_emisiones_gei.csv
+(base) PS C:\Users\Guillermo García\Dropbox\TEC MTY MPE\Producto Académico de Investigación\LEAP\memo_leap\memo> 1..3 | % { python run_LEAP_model.py "$_" }
+++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++
+
+Inicia Experimento 1
+
+++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++
+
+### Inicializa modelo
+
+
+#### Actualiza expresiones
+
+
+#### Ejecuta Modelo
+
+
+#### Ejecuta Modelo
+
+
+#### Exporta resultados
+
+output\2_margen_reserva.csv
+output\2_costos_produccion.csv
+output\2_emisiones_gei.csv
+++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++
+
+Inicia Experimento 2
+
+++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++
+
+### Inicializa modelo
+
+
+#### Actualiza expresiones
+
+
+#### Ejecuta Modelo
+
+
+#### Ejecuta Modelo
+
+
+#### Exporta resultados
+
+output\3_margen_reserva.csv
+output\3_costos_produccion.csv
+output\3_emisiones_gei.csv
+++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++
+
+Inicia Experimento 3
+
+++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++
+
+### Inicializa modelo
+
+
+#### Actualiza expresiones
+
+
+#### Ejecuta Modelo
+
+
+#### Ejecuta Modelo
+
+
+#### Exporta resultados
+
+output\4_margen_reserva.csv
+output\4_costos_produccion.csv
+output\4_emisiones_gei.csv
+(base) PS C:\Users\Guillermo García\Dropbox\TEC MTY MPE\Producto Académico de Investigación\LEAP\memo_leap\memo> python run_LEAP_model.py 0
+++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++
+
+Inicia Experimento 0
+
+++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++
+
+### Inicializa modelo
+
+
+#### Actualiza expresiones
+
+
+#### Ejecuta Modelo
+
+
+#### Ejecuta Modelo
+
+
+#### Exporta resultados
+
+Traceback (most recent call last):
+  File "C:\Users\Guillermo García\Dropbox\TEC MTY MPE\Producto Académico de Investigación\LEAP\memo_leap\memo\run_LEAP_model.py", line 57, in <module>
+    LEAP.BranchVariable("\\Demand\\National Demand\\Demand\\:Total Energy").Expression(
+TypeError: 'str' object is not callable
+(base) PS C:\Users\Guillermo García\Dropbox\TEC MTY MPE\Producto Académico de Investigación\LEAP\memo_leap\memo> python run_LEAP_model.py 0
+++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++
+
+Inicia Experimento 0
+
+++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++
+
+### Inicializa modelo
+
+
+#### Actualiza expresiones
+
+
+#### Ejecuta Modelo
+
+
+#### Ejecuta Modelo
+
+
+#### Exporta resultados
+
+Traceback (most recent call last):
+  File "C:\Users\Guillermo García\Dropbox\TEC MTY MPE\Producto Académico de Investigación\LEAP\memo_leap\memo\run_LEAP_model.py", line 57, in <module>
+    LEAP.BranchVariable("\\Demand\\National Demand\\Demand\\:Total Energy").Expression(
+TypeError: 'str' object is not callable
+(base) PS C:\Users\Guillermo García\Dropbox\TEC MTY MPE\Producto Académico de Investigación\LEAP\memo_leap\memo> iPython
+Python 3.11.3 | packaged by Anaconda, Inc. | (main, Apr 19 2023, 23:46:34) [MSC v.1916 64 bit (AMD64)]
+Type 'copyright', 'credits' or 'license' for more information
+IPython 8.12.0 -- An enhanced Interactive Python. Type '?' for help.
+
+In [1]: import win32com.client as win32^M
+   ...: from utils import change_demand^M
+   ...: import pandas as pd^M
+   ...: import os ^M
+   ...: import sys
+
+In [2]:
+
+In [2]: run_id = 0
+
+In [3]: experimental_design = pd.read_csv("experimental_design_leap.csv")^M
+   ...: run_id, demanda, precio_gas = experimental_design.iloc[run_id]
+
+In [4]: print(demanda)
+4
+
+In [5]: change_demand(demanda)
+Out[5]: 'Interp(2014, 228635, 2015, 237199, 2016, 248192, 2017, 258971, 4%)'
+
+In [6]: LEAP = win32.Dispatch("LEAP.LEAPApplication")^M
+   ...: LEAP.ActiveArea = "Mexico VFF"^M
+   ...: LEAP.ActiveView = "Analysis"^M
+   ...: ^M
+   ...: setscenario = "Current Accounts"^M
+   ...: LEAP.Scenarios(setscenario)
+Out[6]: <COMObject <unknown>>
+
+In [7]: LEAP.BranchVariable("\\Demand\\National Demand\\Demand\\:Total Energy").Expression(^M
+   ...:     change_demand(demanda)^M
+   ...: )
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+Cell In[7], line 1
+----> 1 LEAP.BranchVariable("\\Demand\\National Demand\\Demand\\:Total Energy").Expression(
+      2     change_demand(demanda)
+      3 )
+
+TypeError: 'str' object is not callable
+
+In [8]:
+
+In [8]: cambia_demanda = LEAP.BranchVariable("\\Demand\\National Demand\\Demand\\:Total Energy")^M
+   ...: cambia_demanda.Expression(change_demand(demanda))
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+Cell In[8], line 2
+      1 cambia_demanda = LEAP.BranchVariable("\\Demand\\National Demand\\Demand\\:Total Energy")
+----> 2 cambia_demanda.Expression(change_demand(demanda))
+
+TypeError: 'str' object is not callable
+
+In [9]: LEAP.BranchVariable("\\Demand\\National Demand\\Demand\\:Total Energy").Expression=change_demand(demanda)
+
+In [10]: LEAP.Calculate()
+
+In [11]: exit
+(base) PS C:\Users\Guillermo García\Dropbox\TEC MTY MPE\Producto Académico de Investigación\LEAP\memo_leap\memo> Python run_LEAP_model.py 1
+++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++
+
+Inicia Experimento 1
+
+++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++
+
+### Inicializa modelo
+
+
+#### Actualiza expresiones
+
+
+#### Ejecuta Modelo
+
+
+#### Ejecuta Modelo
+
+
+#### Exporta resultados
+
+Traceback (most recent call last):
+  File "C:\Users\Guillermo García\Dropbox\TEC MTY MPE\Producto Académico de Investigación\LEAP\memo_leap\memo\run_LEAP_model.py", line 57, in <module>
+    LEAP.BranchVariable("\\Demand\\National Demand\\Demand\\:Total Energy").Expression(
+TypeError: 'str' object is not callable
+(base) PS C:\Users\Guillermo García\Dropbox\TEC MTY MPE\Producto Académico de Investigación\LEAP\memo_leap\memo> Python run_LEAP_model.py 1
+++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++
+
+Inicia Experimento 1
+
+++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++
+
+### Inicializa modelo
+
+
+#### Actualiza expresiones
+
+
+#### Ejecuta Modelo
+
+
+#### Ejecuta Modelo
+
+
+#### Exporta resultados
+
+(base) PS C:\Users\Guillermo García\Dropbox\TEC MTY MPE\Producto Académico de Investigación\LEAP\memo_leap\memo> Python run_LEAP_model.py 2
+++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++
+
+Inicia Experimento 2
+
+++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++
+
+### Inicializa modelo
+
+
+#### Actualiza expresiones
+
+
+#### Ejecuta Modelo
+
+
+#### Ejecuta Modelo
+
+
+#### Exporta resultados
+
+(base) PS C:\Users\Guillermo García\Dropbox\TEC MTY MPE\Producto Académico de Investigación\LEAP\memo_leap\memo> Python run_LEAP_model.py 2
+++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++
+
+Inicia Experimento 2
+
+++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++
+
+### Inicializa modelo
+
+
+#### Actualiza expresiones
+
+
+#### Ejecuta Modelo
+
+
+#### Ejecuta Modelo
+
+
+#### Exporta resultados
+
+(base) PS C:\Users\Guillermo García\Dropbox\TEC MTY MPE\Producto Académico de Investigación\LEAP\memo_leap\memo> Python run_LEAP_model.py 2
+++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++
+
+Inicia Experimento 2
+
+++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++
+
+### Inicializa modelo
+
+
+#### Actualiza expresiones
+
+
+#### Ejecuta Modelo
+
+
+#### Ejecuta Modelo
+
+
+#### Exporta resultados
+
+Traceback (most recent call last):
+  File "C:\Users\Guillermo García\Dropbox\TEC MTY MPE\Producto Académico de Investigación\LEAP\memo_leap\memo\run_LEAP_model.py", line 57, in <module>
+    LEAP.BranchVariable("\\Demand\\National Demand\\Demand\\:Total Energy").Expression=change_demand(demanda)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'Expression'
+(base) PS C:\Users\Guillermo García\Dropbox\TEC MTY MPE\Producto Académico de Investigación\LEAP\memo_leap\memo> Python run_LEAP_model.py 2
+++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++
+
+Inicia Experimento 2
+
+++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++
+
+### Inicializa modelo
+
+
+#### Actualiza expresiones
+
+
+#### Ejecuta Modelo
+
+
+#### Ejecuta Modelo
+
+
+#### Exporta resultados
+
+Inicia LEAP
+Activa Area
+Abre Analysis View
+Set scenario
+Actualiza expresiones
+Traceback (most recent call last):
+  File "C:\Users\Guillermo García\Dropbox\TEC MTY MPE\Producto Académico de Investigación\LEAP\memo_leap\memo\run_LEAP_model.py", line 63, in <module>
+    LEAP.BranchVariable("\\Demand\\National Demand\\Demand\\:Total Energy").Expression=change_demand(demanda)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'Expression'
+(base) PS C:\Users\Guillermo García\Dropbox\TEC MTY MPE\Producto Académico de Investigación\LEAP\memo_leap\memo> Python run_LEAP_model.py 2
+++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++
+
+Inicia Experimento 2
+
+++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++
+
+### Inicializa modelo
+
+
+#### Actualiza expresiones
+
+
+#### Ejecuta Modelo
+
+
+#### Ejecuta Modelo
+
+
+#### Exporta resultados
+
+Inicia LEAP
+Activa Area
+Abre Analysis View
+Set scenario
+Actualiza expresiones
+Ejecuta modelo
+(base) PS C:\Users\Guillermo García\Dropbox\TEC MTY MPE\Producto Académico de Investigación\LEAP\memo_leap\memo> Python run_LEAP_model.py 0
+++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++
+
+Inicia Experimento 0
+
+++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++
+
+### Inicializa modelo
+
+
+#### Actualiza expresiones
+
+
+#### Ejecuta Modelo
+
+
+#### Ejecuta Modelo
+
+
+#### Exporta resultados
+
+Inicia LEAP
+Activa Area
+Abre Analysis View
+Set scenario
+Actualiza expresiones
+Ejecuta modelo
+(base) PS C:\Users\Guillermo García\Dropbox\TEC MTY MPE\Producto Académico de Investigación\LEAP\memo_leap\memo> Python run_LEAP_model.py 1
+++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++
+
+Inicia Experimento 1
+
+++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++
+
+### Inicializa modelo
+
+
+#### Actualiza expresiones
+
+
+#### Ejecuta Modelo
+
+
+#### Ejecuta Modelo
+
+
+#### Exporta resultados
+
+Inicia LEAP
+Activa Area
+Abre Analysis View
+Set scenario
+Actualiza expresiones
+Ejecuta modelo
+(base) PS C:\Users\Guillermo García\Dropbox\TEC MTY MPE\Producto Académico de Investigación\LEAP\memo_leap\memo> Python run_LEAP_model.py 1
+++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++
+
+Inicia Experimento 1
+
+++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++
+
+### Inicializa modelo
+
+
+#### Actualiza expresiones
+
+
+#### Ejecuta Modelo
+
+
+#### Ejecuta Modelo
+
+
+#### Exporta resultados
+
+Inicia LEAP
+Activa Area
+Abre Analysis View
+Set scenario
+Actualiza expresiones
+Ejecuta modelo
+(base) PS C:\Users\Guillermo García\Dropbox\TEC MTY MPE\Producto Académico de Investigación\LEAP\memo_leap\memo> Python run_LEAP_model.py 1
+++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++
+
+Inicia Experimento 1
+
+++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++
+
+### Inicializa modelo
+
+
+#### Actualiza expresiones
+
+
+#### Ejecuta Modelo
+
+
+#### Ejecuta Modelo
+
+
+#### Exporta resultados
+
+Inicia LEAP
+Activa Area
+Abre Analysis View
+Set scenario
+Actualiza expresiones
+Ejecuta modelo
+(base) PS C:\Users\Guillermo García\Dropbox\TEC MTY MPE\Producto Académico de Investigación\LEAP\memo_leap\memo> Python run_LEAP_model.py 0
+++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++
+
+Inicia Experimento 0
+
+++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++
+
+### Inicializa modelo
+
+
+#### Actualiza expresiones
+
+
+#### Ejecuta Modelo
+
+
+#### Ejecuta Modelo
+
+
+#### Exporta resultados
+
+Inicia LEAP
+Activa Area
+Abre Analysis View
+Set scenario
+Actualiza expresiones
+Ejecuta modelo
+(base) PS C:\Users\Guillermo García\Dropbox\TEC MTY MPE\Producto Académico de Investigación\LEAP\memo_leap\memo> 1..3 | % { python run_LEAP_model.py "$_" }
+++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++
+
+Inicia Experimento 1
+
+++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++
+
+### Inicializa modelo
+
+
+#### Actualiza expresiones
+
+
+#### Ejecuta Modelo
+
+
+#### Ejecuta Modelo
+
+
+#### Exporta resultados
+
+Inicia LEAP
+Activa Area
+Abre Analysis View
+Set scenario
+Actualiza expresiones
+Ejecuta modelo
+++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++
+
+Inicia Experimento 2
+
+++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++
+
+### Inicializa modelo
+
+
+#### Actualiza expresiones
+
+
+#### Ejecuta Modelo
+
+
+#### Ejecuta Modelo
+
+
+#### Exporta resultados
+
+Inicia LEAP
+Activa Area
+Abre Analysis View
+Set scenario
+Actualiza expresiones
+Ejecuta modelo
+++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++
+
+Inicia Experimento 3
+
+++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++
+
+### Inicializa modelo
+
+
+#### Actualiza expresiones
+
+
+#### Ejecuta Modelo
+
+
+#### Ejecuta Modelo
+
+
+#### Exporta resultados
+
+Inicia LEAP
+Activa Area
+Abre Analysis View
+Set scenario
+Actualiza expresiones
+Ejecuta modelo
+(base) PS C:\Users\Guillermo García\Dropbox\TEC MTY MPE\Producto Académico de Investigación\LEAP\memo_leap\memo> 1..3 | % { python run_LEAP_model.py "$_" }
+++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++
+
+Inicia Experimento 1
+
+++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++
+
+### Inicializa modelo
+
+
+#### Actualiza expresiones
+
+
+#### Ejecuta Modelo
+
+
+#### Ejecuta Modelo
+
+
+#### Exporta resultados
+
+Inicia LEAP
+Activa Area
+Abre Analysis View
+Set scenario
+Actualiza expresiones
+Ejecuta modelo
+++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++
+
+Inicia Experimento 2
+
+++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++
+
+### Inicializa modelo
+
+
+#### Actualiza expresiones
+
+
+#### Ejecuta Modelo
+
+
+#### Ejecuta Modelo
+
+
+#### Exporta resultados
+
+Inicia LEAP
+Activa Area
+Abre Analysis View
+Set scenario
+Actualiza expresiones
+Ejecuta modelo
+++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++
+
+Inicia Experimento 3
+
+++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++
+
+### Inicializa modelo
+
+
+#### Actualiza expresiones
+
+
+#### Ejecuta Modelo
+
+
+#### Ejecuta Modelo
+
+
+#### Exporta resultados
+
+Inicia LEAP
+Activa Area
+Abre Analysis View
+Set scenario
+Actualiza expresiones
+Ejecuta modelo
+(base) PS C:\Users\Guillermo García\Dropbox\TEC MTY MPE\Producto Académico de Investigación\LEAP\memo_leap\memo> 1..3 | % { python run_LEAP_model.py "$_" }
+++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++
+
+Inicia Experimento 1
+
+++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++
+
+### Inicializa modelo
+
+
+#### Actualiza expresiones
+
+
+#### Ejecuta Modelo
+
+
+#### Ejecuta Modelo
+
+
+#### Exporta resultados
+
+Inicia LEAP
+Activa Area
+Abre Analysis View
+Set scenario
+Actualiza expresiones
+Ejecuta modelo
+++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++
+
+Inicia Experimento 2
+
+++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++
+
+### Inicializa modelo
+
+
+#### Actualiza expresiones
+
+
+#### Ejecuta Modelo
+
+
+#### Ejecuta Modelo
+
+
+#### Exporta resultados
+
+Inicia LEAP
+Activa Area
+Abre Analysis View
+Set scenario
+Actualiza expresiones
+Ejecuta modelo
+++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++
+
+Inicia Experimento 3
+
+++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++
+
+### Inicializa modelo
+
+
+#### Actualiza expresiones
+
+
+#### Ejecuta Modelo
+
+
+#### Ejecuta Modelo
+
+
+#### Exporta resultados
+
+Inicia LEAP
+Activa Area
+Abre Analysis View
+Set scenario
+Actualiza expresiones
+Ejecuta modelo
+(base) PS C:\Users\Guillermo García\Dropbox\TEC MTY MPE\Producto Académico de Investigación\LEAP\memo_leap\memo> 1..3 | % { python run_LEAP_model.py "$_" }
+++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++
+
+Inicia Experimento 1
+
+++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++
+
+### Inicializa modelo
+
+
+#### Actualiza expresiones
+
+
+#### Ejecuta Modelo
+
+
+#### Ejecuta Modelo
+
+
+#### Exporta resultados
+
+Inicia LEAP
+Activa Area
+Abre Analysis View
+Set scenario
+Actualiza expresiones
+Ejecuta modelo
+++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++
+
+Inicia Experimento 2
+
+++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++
+
+### Inicializa modelo
+
+
+#### Actualiza expresiones
+
+
+#### Ejecuta Modelo
+
+
+#### Ejecuta Modelo
+
+
+#### Exporta resultados
+
+Inicia LEAP
+Activa Area
+Abre Analysis View
+Set scenario
+Actualiza expresiones
+Ejecuta modelo
+++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++
+
+Inicia Experimento 3
+
+++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++
+
+### Inicializa modelo
+
+
+#### Actualiza expresiones
+
+
+#### Ejecuta Modelo
+
+
+#### Ejecuta Modelo
+
+
+#### Exporta resultados
+
+Inicia LEAP
+Activa Area
+Abre Analysis View
+Set scenario
+Actualiza expresiones
+Ejecuta modelo

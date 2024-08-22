@@ -1,0 +1,386 @@
+base) PS C:\Users\Guillermo García> pip install ipython
+Requirement already satisfied: ipython in c:\anaconda\lib\site-packages (8.12.0)
+Requirement already satisfied: backcall in c:\anaconda\lib\site-packages (from ipython) (0.2.0)
+Requirement already satisfied: decorator in c:\anaconda\lib\site-packages (from ipython) (5.1.1)
+Requirement already satisfied: jedi>=0.16 in c:\anaconda\lib\site-packages (from ipython) (0.18.1)
+Requirement already satisfied: matplotlib-inline in c:\anaconda\lib\site-packages (from ipython) (0.1.6)
+Requirement already satisfied: pickleshare in c:\anaconda\lib\site-packages (from ipython) (0.7.5)
+Requirement already satisfied: prompt-toolkit!=3.0.37,<3.1.0,>=3.0.30 in c:\anaconda\lib\site-packages (from ipython) (3.0.36)
+Requirement already satisfied: pygments>=2.4.0 in c:\anaconda\lib\site-packages (from ipython) (2.15.1)
+Requirement already satisfied: stack-data in c:\anaconda\lib\site-packages (from ipython) (0.2.0)
+Requirement already satisfied: traitlets>=5 in c:\anaconda\lib\site-packages (from ipython) (5.7.1)
+Requirement already satisfied: colorama in c:\anaconda\lib\site-packages (from ipython) (0.4.6)
+Requirement already satisfied: parso<0.9.0,>=0.8.0 in c:\anaconda\lib\site-packages (from jedi>=0.16->ipython) (0.8.3)
+Requirement already satisfied: wcwidth in c:\anaconda\lib\site-packages (from prompt-toolkit!=3.0.37,<3.1.0,>=3.0.30->ipython) (0.2.5)
+Requirement already satisfied: executing in c:\anaconda\lib\site-packages (from stack-data->ipython) (0.8.3)
+Requirement already satisfied: asttokens in c:\anaconda\lib\site-packages (from stack-data->ipython) (2.0.5)
+Requirement already satisfied: pure-eval in c:\anaconda\lib\site-packages (from stack-data->ipython) (0.2.2)
+Requirement already satisfied: six in c:\anaconda\lib\site-packages (from asttokens->stack-data->ipython) (1.16.0)
+(base) PS C:\Users\Guillermo García> ipython
+Python 3.11.3 | packaged by Anaconda, Inc. | (main, Apr 19 2023, 23:46:34) [MSC v.1916 64 bit (AMD64)]
+Type 'copyright', 'credits' or 'license' for more information
+IPython 8.12.0 -- An enhanced Interactive Python. Type '?' for help.
+
+In [1]: import win32com.client as win32
+
+In [2]: LEAP = win32.Dispatch("LEAP.LEAPApplication")
+
+In [3]: LEAP.BrachVariable
+---------------------------------------------------------------------------
+AttributeError                            Traceback (most recent call last)
+Cell In[3], line 1
+----> 1 LEAP.BrachVariable
+
+File C:\anaconda\Lib\site-packages\win32com\client\dynamic.py:639, in CDispatch.__getattr__(self, attr)
+    636     return self._get_good_object_(ret)
+    638 # no where else to look.
+--> 639 raise AttributeError("%s.%s" % (self._username_, attr))
+
+AttributeError: LEAP.LEAPApplication.BrachVariable
+
+In [4]: LEAP.BranchVariable
+Out[4]: <bound method BranchVariable of <COMObject LEAP.LEAPApplication>>
+
+In [5]: LEAP.BranchVariable("\\Demand\\National Demand\\Demand\\Total Energy").Expression = "Interp(2014, 228635, 20
+   ...: 15, 237199, 2016, 248192, 2017, 258971, 3%)"
+---------------------------------------------------------------------------
+AttributeError                            Traceback (most recent call last)
+Cell In[5], line 1
+----> 1 LEAP.BranchVariable("\\Demand\\National Demand\\Demand\\Total Energy").Expression = "Interp(2014, 228635, 2015, 237199, 2016, 248192, 2017, 258971, 3%)"
+
+AttributeError: 'NoneType' object has no attribute 'Expression'
+
+In [6]:
+
+In [6]: LEAP.branches
+Out[6]: <COMObject <unknown>>
+
+In [7]: LEAP.Branches
+Out[7]: <COMObject <unknown>>
+
+In [8]: LEAP.ActiveArea = "Mexico VFF"
+
+In [9]: LEAP.ActiveView = "Analysis"
+
+In [10]: LEAP.Branches
+Out[10]: <COMObject <unknown>>
+
+In [11]: LEAP.branches
+Out[11]: <COMObject <unknown>>
+
+In [12]: LEAP.ActiveView = "Results"
+
+In [13]: setscenario = "Base Demand PIIRCE 2023 Base Fuel Costs"
+
+In [14]: LEAP.Scenarios(setscenario)
+Out[14]: <COMObject <unknown>>
+
+In [15]: setscenario = "Reference"
+
+In [16]: LEAP.Scenarios(setscenario)
+
+In [17]: setscenario = "Base Demand PIIRCE 2023 Base Fuel Costs"
+
+In [18]: LEAP.Scenarios(setscenario)
+Out[18]: <COMObject <unknown>>
+
+In [19]: for b in LEAP.Branches:
+    ...:     print(b)
+    ...:
+<COMObject <unknown>>
+<COMObject <unknown>>
+<COMObject <unknown>>
+<COMObject <unknown>>
+<COMObject <unknown>>
+<COMObject <unknown>>
+<COMObject <unknown>>
+<COMObject <unknown>>
+<COMObject <unknown>>
+<COMObject <unknown>>
+<COMObject <unknown>>
+<COMObject <unknown>>
+<COMObject <unknown>>
+<COMObject <unknown>>
+<COMObject <unknown>>
+<COMObject <unknown>>
+<COMObject <unknown>>
+<COMObject <unknown>>
+<COMObject <unknown>>
+<COMObject <unknown>>
+<COMObject <unknown>>
+<COMObject <unknown>>
+<COMObject <unknown>>
+<COMObject <unknown>>
+<COMObject <unknown>>
+<COMObject <unknown>>
+<COMObject <unknown>>
+<COMObject <unknown>>
+<COMObject <unknown>>
+<COMObject <unknown>>
+<COMObject <unknown>>
+<COMObject <unknown>>
+<COMObject <unknown>>
+<COMObject <unknown>>
+<COMObject <unknown>>
+<COMObject <unknown>>
+<COMObject <unknown>>
+<COMObject <unknown>>
+<COMObject <unknown>>
+<COMObject <unknown>>
+<COMObject <unknown>>
+<COMObject <unknown>>
+<COMObject <unknown>>
+<COMObject <unknown>>
+<COMObject <unknown>>
+<COMObject <unknown>>
+<COMObject <unknown>>
+<COMObject <unknown>>
+<COMObject <unknown>>
+<COMObject <unknown>>
+<COMObject <unknown>>
+<COMObject <unknown>>
+<COMObject <unknown>>
+<COMObject <unknown>>
+<COMObject <unknown>>
+<COMObject <unknown>>
+<COMObject <unknown>>
+<COMObject <unknown>>
+
+In [20]: b.BranchTypeName
+Out[20]: 'Resource'
+
+In [21]: for b in LEAP.Branches:
+    ...:     print(b.BranchTypeName)
+    ...:
+Unknown Branch Type
+Key Assumption Category
+Key Assumption
+Key Assumption
+Key Assumption
+Demand Category
+Demand Category
+Demand Technology
+Unknown Branch Type
+Transformation Module
+Transformation Process Category
+Transformation Process
+Transformation Module
+Transformation Process Category
+Transformation Process
+Transformation Process
+Transformation Process
+Transformation Process
+Transformation Process
+Transformation Process
+Transformation Process
+Transformation Process
+Transformation Process
+Transformation Process
+Transformation Process
+Transformation Process
+Transformation Process
+Transformation Process
+Transformation Process
+Transformation Process
+Transformation Process
+Transformation Process
+Transformation Process
+Transformation Process
+Transformation Process
+Transformation Process
+Transformation Process
+Transformation Process
+Transformation Process
+Transformation Process
+Transformation Process
+Transformation Process
+Resource Category
+Resource Category
+Resource
+Resource
+Resource
+Resource
+Resource
+Resource
+Resource
+Resource
+Resource Category
+Resource
+Resource
+Resource
+Resource
+Resource
+
+In [22]: LEAP.ActiveView = "Analysis"
+
+In [23]: for b in LEAP.Branches:
+    ...:     print(b.BranchTypeName)
+    ...:
+Unknown Branch Type
+Key Assumption Category
+Key Assumption
+Key Assumption
+Key Assumption
+Demand Category
+Demand Category
+Demand Technology
+Unknown Branch Type
+Transformation Module
+Transformation Process Category
+Transformation Process
+Transformation Module
+Transformation Process Category
+Transformation Process
+Transformation Process
+Transformation Process
+Transformation Process
+Transformation Process
+Transformation Process
+Transformation Process
+Transformation Process
+Transformation Process
+Transformation Process
+Transformation Process
+Transformation Process
+Transformation Process
+Transformation Process
+Transformation Process
+Transformation Process
+Transformation Process
+Transformation Process
+Transformation Process
+Transformation Process
+Transformation Process
+Transformation Process
+Transformation Process
+Transformation Process
+Transformation Process
+Transformation Process
+Transformation Process
+Transformation Process
+Resource Category
+Resource Category
+Resource
+Resource
+Resource
+Resource
+Resource
+Resource
+Resource
+Resource
+Resource Category
+Resource
+Resource
+Resource
+Resource
+Resource
+
+In [24]: for b in LEAP.Branches:
+    ...:     if b.BranchTypeName == "Demand Technology":
+    ...:         rama_root = b
+    ...:         break
+    ...:
+
+In [25]: rama_root.BranchTypeName
+Out[25]: 'Demand Technology'
+
+In [26]: rama_root.Children
+Out[26]: <COMObject <unknown>>
+
+In [27]: for a in rama_root.Children:
+    ...:     print(a)
+    ...:
+
+In [28]: rama_root.Variable
+Out[28]: <bound method Variable of <COMObject <unknown>>>
+
+In [29]: LEAP.BranchVariable("\\Demand\\National Demand\\Demand\\")
+Out[29]: <COMObject BranchVariable>
+
+In [30]: a = LEAP.BranchVariable("\\Demand\\National Demand\\Demand\\")
+
+In [31]: type(a)
+Out[31]: win32com.client.CDispatch
+
+In [32]: a.Variable
+---------------------------------------------------------------------------
+AttributeError                            Traceback (most recent call last)
+Cell In[32], line 1
+----> 1 a.Variable
+
+File C:\anaconda\Lib\site-packages\win32com\client\dynamic.py:639, in CDispatch.__getattr__(self, attr)
+    636     return self._get_good_object_(ret)
+    638 # no where else to look.
+--> 639 raise AttributeError("%s.%s" % (self._username_, attr))
+
+AttributeError: BranchVariable.Variable
+
+In [33]: a.Variable("Total Energy")
+---------------------------------------------------------------------------
+AttributeError                            Traceback (most recent call last)
+Cell In[33], line 1
+----> 1 a.Variable("Total Energy")
+
+File C:\anaconda\Lib\site-packages\win32com\client\dynamic.py:639, in CDispatch.__getattr__(self, attr)
+    636     return self._get_good_object_(ret)
+    638 # no where else to look.
+--> 639 raise AttributeError("%s.%s" % (self._username_, attr))
+
+AttributeError: BranchVariable.Variable
+
+In [34]: a.Expression
+Out[34]: 'YearlyShape(System Load)'
+
+In [35]: a = LEAP.BranchVariable("\\Demand\\National Demand\\Demand\\")
+
+In [36]: a = LEAP.BranchVariable("\\Demand\\National Demand\\Demand\\:Total Energy")
+
+In [37]: a.
+  Cell In[37], line 1
+    a.
+      ^
+SyntaxError: invalid syntax
+
+
+In [38]: a.Expression
+Out[38]: 'Interp(2014, 228635, 2015, 237199, 2016, 248192, 2017, 258971, 3%)'
+
+In [39]: def change_demand(parametro):
+    ...:     return f"Interp(2014, 228635, 2015, 237199, 2016, 248192, 2017, 258971, {parametro}%)"
+    ...:
+
+In [40]: change_demand(4)
+Out[40]: 'Interp(2014, 228635, 2015, 237199, 2016, 248192, 2017, 258971, 4%)'
+
+In [41]: a.Expression = change_demand(4)
+
+In [42]: LEAP.Calculate()
+
+In [43]: LEAP.LoadFavorite("Energy Demand Final Units")
+---------------------------------------------------------------------------
+AttributeError                            Traceback (most recent call last)
+Cell In[43], line 1
+----> 1 LEAP.LoadFavorite("Energy Demand Final Units")
+
+File C:\anaconda\Lib\site-packages\win32com\client\dynamic.py:639, in CDispatch.__getattr__(self, attr)
+    636     return self._get_good_object_(ret)
+    638 # no where else to look.
+--> 639 raise AttributeError("%s.%s" % (self._username_, attr))
+
+AttributeError: LEAP.LEAPApplication.LoadFavorite
+
+In [44]: for x in LEAP.BranchVariables:
+    ...:     print(x.BranchTypeName)
+    ...:
+---------------------------------------------------------------------------
+AttributeError                            Traceback (most recent call last)
+Cell In[44], line 1
+----> 1 for x in LEAP.BranchVariables:
+      2     print(x.BranchTypeName)
+
+File C:\anaconda\Lib\site-packages\win32com\client\dynamic.py:639, in CDispatch.__getattr__(self, attr)
+    636     return self._get_good_object_(ret)
+    638 # no where else to look.
+--> 639 raise AttributeError("%s.%s" % (self._username_, attr))
+
+AttributeError: LEAP.LEAPApplication.BranchVariables

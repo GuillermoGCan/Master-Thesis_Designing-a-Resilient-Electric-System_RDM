@@ -1,0 +1,4 @@
+VarName,Min,Max,Cte,Type,Gradient,Description,Comments
+demand,1.5,4.5,3,3,2,crecimiento anual de la demanda de energia electrica,
+natgas_price,1,10,4.251744141,3,2,precio final del gas natural al 2032,
+carbon_tax,0.39,17.35,0.39,3,2,impuesto al carbono aplicable para toda la simulacion,
