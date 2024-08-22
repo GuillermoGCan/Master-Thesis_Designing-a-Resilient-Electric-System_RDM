@@ -1,5 +1,7 @@
 # Master-Thesis_Designing-a-Resilient-Electric-System_RDM
- This repository contains the scripts and other documentation I used to elaborate my Master's Thesis.
+ This repository contains the scripts and other documentation I used to elaborate my Master's Thesis. The thesis in Spanish can be accessed through the following link: https://repositorio.tec.mx/handle/11285/651591. Also, an Executive Presentation in English is included in this repository.
 
 Abstract
+
 This thesis addresses the future development of Mexico's National Electric System (SEN) in a context where the country has experienced contrasting energy policies over a decade. In light of the alternating opposing energy policies under the administrations of Enrique Peña Nieto and Andrés Manuel López Obrador, the Robust Decision Making (RDM) technique is employed to evaluate the resilience of these policies against a wide range of plausible futures. The study focuses on assessing the performance of the SEN under the implementation of each policy in terms of reserve margin, production costs, and direct greenhouse gas emissions in a context of deep uncertainty. The results reveal that the most resilient energy policies are characterized by significant incorporation of new generation capacities, technological diversification, and extensive use of clean energy. It is observed that the current energy policy could be vulnerable for not aligning with these criteria. The research highlights the need for public debate and the formulation of policies based on objective analysis and evidence, focusing on national well-being and progress.
+
